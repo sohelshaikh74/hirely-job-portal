@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import Navbar from "../shared/Navbar";
 import { Input } from "../ui/input";
@@ -16,7 +17,6 @@ const Companies = () => {
 
   useEffect(() => {
     dispatch(setSearchCompanyByText(input));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [input]);
   return (
     <div>

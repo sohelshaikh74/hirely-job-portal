@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "../shared/Navbar";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
@@ -82,7 +82,7 @@ const Signup = () => {
               value={input.fullname}
               name="fullname"
               onChange={changeEventHandler}
-              placeholder="eg. Jhon Doe"
+              placeholder="patel"
             />
           </div>
           <div className="my-2">
@@ -92,7 +92,7 @@ const Signup = () => {
               value={input.email}
               name="email"
               onChange={changeEventHandler}
-              placeholder="eg. jhon123@gmail.com"
+              placeholder="patel@gmail.com"
             />
           </div>
           <div className="my-2">
@@ -112,7 +112,7 @@ const Signup = () => {
               value={input.password}
               name="password"
               onChange={changeEventHandler}
-              placeholder="#######"
+              placeholder="patel@gmail.com"
             />
           </div>
           <div className="flex items-center justify-between">

@@ -1,8 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { RadioGroup, RadioGroupItem } from "./ui/radio-group";
 import { Label } from "./ui/label";
 import { useDispatch } from "react-redux";
-// import { setSearchedQuery } from "@/redux/jobSlice";
+import { setSearchedQuery } from "@/redux/jobSlice";
 
 const fitlerData = [
   {
@@ -25,9 +26,9 @@ const FilterCard = () => {
   const changeHandler = (value) => {
     setSelectedValue(value);
   };
-  //   useEffect(() => {
-  //     dispatch(setSearchedQuery(selectedValue));
-  //   }, [selectedValue]);
+  useEffect(() => {
+    dispatch(setSearchedQuery(selectedValue));
+  }, [selectedValue]);
   return (
     <div className="w-full bg-white p-3 rounded-md">
       <h1 className="font-bold text-lg">Filter Jobs</h1>
@@ -39,7 +40,10 @@ const FilterCard = () => {
             {data.array.map((item, idx) => {
               const itemId = `id${index}-${idx}`;
               return (
-                <div key={index} className="flex items-center space-x-2 my-2">
+                <div
+                  key={Math.random()}
+                  className="flex items-center space-x-2 my-2"
+                >
                   <RadioGroupItem value={item} id={itemId} />
                   <Label htmlFor={itemId}>{item}</Label>
                 </div>

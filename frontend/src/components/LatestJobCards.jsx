@@ -1,7 +1,7 @@
+/* eslint-disable react/prop-types */
 import { Badge } from "./ui/badge";
 import { useNavigate } from "react-router-dom";
 
-// eslint-disable-next-line react/prop-types
 const LatestJobCards = ({ job }) => {
   const navigate = useNavigate();
   return (

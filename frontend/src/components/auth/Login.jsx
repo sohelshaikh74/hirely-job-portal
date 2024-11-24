@@ -18,7 +18,7 @@ const Login = () => {
     password: "",
     role: "",
   });
-  const { loading } = useSelector((store) => store.auth);
+  const { loading, user } = useSelector((store) => store.auth);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -48,11 +48,11 @@ const Login = () => {
       dispatch(setLoading(false));
     }
   };
-  // useEffect(() => {
-  //   if (user) {
-  //     navigate("/");
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, []);
   return (
     <div>
       <Navbar />
@@ -69,7 +69,7 @@ const Login = () => {
               value={input.email}
               name="email"
               onChange={changeEventHandler}
-              placeholder="email address"
+              placeholder="patel@gmail.com"
             />
           </div>
 
@@ -80,7 +80,7 @@ const Login = () => {
               value={input.password}
               name="password"
               onChange={changeEventHandler}
-              placeholder="########"
+              placeholder="patel@gmail.com"
             />
           </div>
           <div className="flex items-center justify-between">
