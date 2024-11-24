@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Button } from "./ui/button";
 import { Bookmark } from "lucide-react";
 import { Avatar, AvatarImage } from "./ui/avatar";
@@ -6,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const Job = ({ job }) => {
   const navigate = useNavigate();
-  const jobId = "lsekdhjgdsnfvsdkjf";
+  // const jobId = "lsekdhjgdsnfvsdkjf";
 
   const daysAgoFunction = (mongodbTime) => {
     const createdAt = new Date(mongodbTime);
@@ -35,44 +36,29 @@ const Job = ({ job }) => {
           </Avatar>
         </Button>
         <div>
-          <h1 className="font-medium text-lg">
-            {job?.company?.name}
-            {/* Company Name */}
-          </h1>
+          <h1 className="font-medium text-lg">{job?.company?.name}</h1>
           <p className="text-sm text-gray-500">India</p>
         </div>
       </div>
 
       <div>
-        <h1 className="font-bold text-lg my-2">
-          {job?.title}
-          {/* company */}
-        </h1>
-        <p className="text-sm text-gray-600">
-          {job?.description}
-          {/* Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi
-          explicabo sequi porro iusto reiciendis maiores exercitationem repellat
-          in consequuntur rem. */}
-        </p>
+        <h1 className="font-bold text-lg my-2">{job?.title}</h1>
+        <p className="text-sm text-gray-600">{job?.description}</p>
       </div>
       <div className="flex items-center gap-2 mt-4">
         <Badge className={"text-blue-700 font-bold"} variant="ghost">
-          {job?.position}
-          Positions
+          {job?.position} Positions
         </Badge>
         <Badge className={"text-[#F83002] font-bold"} variant="ghost">
           {job?.jobType}
-          {/* Part Time */}
         </Badge>
         <Badge className={"text-[#7209b7] font-bold"} variant="ghost">
           {job?.salary}LPA
-          {/* 24 LPA */}
         </Badge>
       </div>
       <div className="flex items-center gap-4 mt-4">
         <Button
-          // onClick={() => navigate(`/description/${job?._id}`)}
-          onClick={() => navigate(`/description/${jobId}`)}
+          onClick={() => navigate(`/description/${job?._id}`)}
           variant="outline"
         >
           Details
