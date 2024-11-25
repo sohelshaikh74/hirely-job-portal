@@ -12,7 +12,6 @@ const Home = () => {
   useGetAllJobs();
   const navigate = useNavigate();
   const { user } = useSelector((store) => store.auth);
-  console.log("hello");
 
   useEffect(() => {
     if (user?.role === "recruiter") navigate("/admin/companies");
@@ -20,7 +19,7 @@ const Home = () => {
   return (
     <div>
       <Navbar />
-      <div className="bg-[#FFFFFF]">
+      <div className="bg-[#FAFAFB]">
         <HeroSection />
         <CategoryCarousel />
         <LatestJobs />

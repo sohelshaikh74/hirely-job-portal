@@ -1,10 +1,12 @@
 const Footer = () => {
   return (
-    <footer className="border-t border-t-gray-200 py-8">
+    <footer className="border-t border-t-gray-200 py-5">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
-            <h2 className="text-xl font-bold">Job Hunt</h2>
+            <h1 className="text-1xl font-bold">
+              Hire<span className="text-[#f83002]">ly</span>
+            </h1>
             <p className="text-sm">© 2024 Your Company. All rights reserved.</p>
           </div>
 

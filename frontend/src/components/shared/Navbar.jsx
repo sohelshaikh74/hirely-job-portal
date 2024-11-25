@@ -12,11 +12,34 @@ import axios from "axios";
 import { USER_API_END_POINT } from "@/utils/constant";
 import { toast } from "sonner";
 import { setUser } from "@/redux/authSlice";
+import { useState, useEffect } from "react";
 
 const Navbar = () => {
   const { user } = useSelector((store) => store.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [scrolled, setScrolled] = useState(false); // state to track scroll
+
+  // Function to handle scroll event
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      // When scrolled more than 50px
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  };
+
+  useEffect(() => {
+    // Add scroll event listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup event listener on unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const logoutHandler = async () => {
     try {
       const res = await axios.get(`${USER_API_END_POINT}/logout`, {
@@ -32,14 +55,17 @@ const Navbar = () => {
       toast.error(error.response.data.message);
     }
   };
+
   return (
-    <div className="bg-white border-b sticky top-0 z-50 backdrop-blur-lg">
+    <div
+      className={`bg-white border-b sticky top-0 z-50 backdrop-blur-lg transition-shadow duration-300 ${
+        scrolled ? "shadow-md" : ""
+      }`}
+    >
       <div className="flex items-center justify-between mx-auto max-w-7xl h-16">
         <div>
           <h1 className="text-2xl font-bold">
-            {/* <Link to="/"> */}
-            Job <span className="text-[#f83002]">Portal</span>
-            {/* </Link> */}
+            Hire<span className="text-[#f83002]">ly</span>
           </h1>
         </div>
         <div className="flex items-center gap-12">
@@ -70,10 +96,12 @@ const Navbar = () => {
           {!user ? (
             <div className="flex items-center gap-3">
               <Link to="/login">
-                <Button variant="outline">Login</Button>
+                <Button variant="outline" className="border border-[#481c94]">
+                  Login
+                </Button>
               </Link>
               <Link to="/signup">
-                <Button className="bg-[#6a38c2] hover:bg-[#481c94]">
+                <Button className="bg-[#f83002] hover:bg-[#481c94]">
                   Sing Up
                 </Button>
               </Link>
@@ -84,7 +112,6 @@ const Navbar = () => {
                 <Avatar className="cursor-pointer">
                   <AvatarImage
                     src={user?.profile?.profilePhoto}
-                    // src="https://github.com/shadcn.png"
                     alt="@shadcn"
                     className="rounded-full w-[40px]"
                   />
@@ -96,12 +123,12 @@ const Navbar = () => {
                     <AvatarImage
                       src={user?.profile?.profilePhoto}
                       alt="@shadcn"
-                      className="rounded-full w-[40px]"
+                      className="rounded-full w-[50px]"
                     />
                   </Avatar>
                   <div>
                     <h4 className="font-medium">{user?.fullname}</h4>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-muted-foreground profile-bio">
                       {user?.profile?.bio}{" "}
                     </p>
                   </div>

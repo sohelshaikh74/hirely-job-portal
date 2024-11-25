@@ -8,15 +8,20 @@ import { setSearchedQuery } from "@/redux/jobSlice";
 const fitlerData = [
   {
     fitlerType: "Location",
-    array: ["Delhi NCR", "Bangalore", "Hyderabad", "Pune", "Mumbai"],
+    array: ["Delhi NCR", "Bengaluru", "Hydrabad", "Pune", "Mumbai"],
   },
   {
     fitlerType: "Industry",
-    array: ["Frontend Developer", "Backend Developer", "FullStack Developer"],
+    array: [
+      "Frontend Developer",
+      "Backend Developer",
+      "FullStack Developer",
+      "Mern Stack Developer",
+    ],
   },
   {
     fitlerType: "Salary",
-    array: ["0-40k", "42-1lakh", "1lakh to 5lakh"],
+    array: ["0-40k", "41-60k", "60k to 1lakh"],
   },
 ];
 

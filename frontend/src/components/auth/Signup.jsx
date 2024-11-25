@@ -69,7 +69,7 @@ const Signup = () => {
   return (
     <div>
       <Navbar />
-      <div className="flex items-center justify-center max-w-7xl mx-auto">
+      <div className="flex items-center justify-center max-w-6xl mx-auto">
         <form
           onSubmit={submitHandler}
           className="w-1/2 border border-gray-200 rounded-md p-4 my-10"
@@ -82,7 +82,7 @@ const Signup = () => {
               value={input.fullname}
               name="fullname"
               onChange={changeEventHandler}
-              placeholder="patel"
+              placeholder="Enter your full name"
             />
           </div>
           <div className="my-2">
@@ -92,7 +92,7 @@ const Signup = () => {
               value={input.email}
               name="email"
               onChange={changeEventHandler}
-              placeholder="patel@gmail.com"
+              placeholder="eg.  user123@gmail.com"
             />
           </div>
           <div className="my-2">
@@ -112,7 +112,7 @@ const Signup = () => {
               value={input.password}
               name="password"
               onChange={changeEventHandler}
-              placeholder="patel@gmail.com"
+              placeholder=""
             />
           </div>
           <div className="flex items-center justify-between">
