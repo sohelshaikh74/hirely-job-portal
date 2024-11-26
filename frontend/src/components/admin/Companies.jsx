@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setSearchCompanyByText } from "@/redux/companySlice";
 import useGetAllCompanies from "../hooks/useGetAllCompanies";
+import Footer from "../shared/Footer";
 
 const Companies = () => {
   useGetAllCompanies();
