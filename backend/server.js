@@ -7,8 +7,12 @@ import cors from "cors";
 import companyRoute from "./routes/company.route.js";
 import jobRoute from "./routes/job.route.js";
 import applicationRoute from "./routes/application.route.js";
+import path from "path";
+
 const app = express();
 dotenv.config();
+
+const _dirname = path.resolve();
 
 // middleware
 app.use(express.json());
@@ -32,6 +36,11 @@ app.use("/api/v1/company", companyRoute);
 app.use("/api/v1/job", jobRoute);
 // application
 app.use("/api/v1/application", applicationRoute);
+
+app.use(express.static(path.join(_dirname, "/frontend/dist")));
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(_dirname, "frontend", "dist", "index.html"));
+});
 
 http: app.get("/", (req, res) => {
   res.send("hello from node.js**");
