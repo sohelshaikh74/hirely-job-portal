@@ -10,7 +10,7 @@ export const register = async (req, res) => {
 
     if (!fullname || !email || !phoneNumber || !password || !role) {
       return res.status(400).json({
-        message: "Something is missing",
+        message: "All fields are required.",
         success: false,
       });
     }

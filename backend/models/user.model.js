@@ -44,7 +44,7 @@ const userSchema = new mongoose.Schema(
   {
     fullname: {
       type: String,
-      required: true,
+      required: [true, "Please enter your name"],
     },
     email: {
       type: String,
