@@ -71,7 +71,8 @@ const ApplicantsTable = () => {
                     <span>NA</span>
                   )}
                 </TableCell>
-                <TableCell>{item?.applicant.createdAt.split("T")[0]}</TableCell>
+{/*                 <TableCell>{item?.applicant.createdAt.split("T")[0]}</TableCell> */}
+                <TableCell>{item?.applicant.createdAt ? item.applicant.createdAt.split("T")[0] : "N/A"}</TableCell>
                 <TableCell className="float-right cursor-pointer">
                   <Popover>
                     <PopoverTrigger>
