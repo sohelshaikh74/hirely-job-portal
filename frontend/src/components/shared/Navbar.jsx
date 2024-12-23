@@ -90,6 +90,9 @@ const Navbar = () => {
                 <li>
                   <Link to="/browse">Browse</Link>
                 </li>
+                <li>
+                  <Link to="/myjobs">My Jobs</Link>
+                </li>
               </>
             )}
           </ul>
