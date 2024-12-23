@@ -19,6 +19,7 @@ const AppliedJobTable = () => {
     <div>
       <Navbar />
       <div className="max-w-4xl mx-auto bg-white rounded-2xl">
+        <h1 className="font-bold text-lg my-5">Applied Jobs</h1>
         <Table>
           <TableCaption>A list of your applied jobs</TableCaption>
           <TableHeader>
