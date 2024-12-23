@@ -10,8 +10,10 @@ import {
 import { Badge } from "./ui/badge";
 import { useSelector } from "react-redux";
 import Navbar from "./shared/Navbar";
+import useGetAppliedJobs from "./hooks/useGetAppliedJobs";
 
 const AppliedJobTable = () => {
+  useGetAppliedJobs();
   const { allAppliedJobs } = useSelector((store) => store.job);
   return (
     <div>
