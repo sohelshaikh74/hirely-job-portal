@@ -223,13 +223,11 @@ import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
 import { Loader2 } from "lucide-react";
 
-// const companyArray = [];
-
 const PostJob = () => {
   const [input, setInput] = useState({
     title: "",
     description: "",
-    requirements: "",
+    requirements: "", // Make sure this is part of the state
     salary: "",
     location: "",
     jobType: "",
@@ -241,6 +239,7 @@ const PostJob = () => {
   const navigate = useNavigate();
 
   const { companies } = useSelector((store) => store.company);
+
   const changeEventHandler = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
@@ -342,6 +341,17 @@ const PostJob = () => {
                 className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1"
               />
             </div>
+            <div className="col-span-2">
+              <Label>Requirements</Label>
+              <Input
+                type="text"
+                name="requirements"
+                value={input.requirements}
+                onChange={changeEventHandler}
+                className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1"
+                placeholder="Enter the job requirements"
+              />
+            </div>
             {companies.length > 0 && (
               <div className="col-span-2">
                 <Label>Company</Label>
@@ -368,7 +378,6 @@ const PostJob = () => {
             )}
             <div className="col-span-2">
               <Label>Description</Label>
-              {/* Replace Input with Textarea for Description */}
               <textarea
                 name="description"
                 value={input.description}
