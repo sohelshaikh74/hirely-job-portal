@@ -15,6 +15,10 @@ const Jobs = () => {
   const { allJobs, searchedQuery } = useSelector((store) => store.job);
   const [filterJobs, setFilterJobs] = useState(allJobs);
 
+  // serach implementing start
+  const [search, setSearch] = useState("");
+  // serach implementing end
+
   useEffect(() => {
     if (searchedQuery) {
       const filteredJobs = allJobs.filter((job) => {
@@ -35,11 +39,11 @@ const Jobs = () => {
       <Navbar />
 
       {/* implementing job search filter */}
-      <div className="flex w-[40%] shadow-lg border border-gray-200 pl-3 rounded-full items-center gap-4 mx-auto">
+      <div className="flex w-[40%] shadow-lg border border-gray-200 pl-3 rounded-full items-center gap-4 mx-auto mt-8">
         <input
           type="text"
           placeholder="Search for jobs"
-          // onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => setSearch(e.target.value)}
           className="outline-none border-none w-full bg-transparent"
         />
         <Button
@@ -68,7 +72,7 @@ const Jobs = () => {
                     transition={{ duration: 0.3 }}
                     key={job?._id}
                   >
-                    <Job job={job} />
+                    <Job job={job} search={search} />
                   </motion.div>
                 ))}
               </div>
