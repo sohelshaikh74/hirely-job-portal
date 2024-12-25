@@ -137,7 +137,7 @@ const Jobs = () => {
       <div className="flex w-[40%] shadow-lg border border-gray-200 pl-3 rounded-full items-center gap-4 mx-auto mt-8">
         <input
           type="text"
-          placeholder="Search for Jobs/Skills/designation"
+          placeholder="Search for Jobs/Skills/designation/companies"
           onChange={(e) => setSearch(e.target.value)} // Update search query on every keystroke.
           value={search}
           className="outline-none border-none w-full bg-transparent"
@@ -171,7 +171,7 @@ const Jobs = () => {
           )}
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

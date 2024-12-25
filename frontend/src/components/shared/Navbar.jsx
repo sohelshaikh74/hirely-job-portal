@@ -19,7 +19,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false); // state to track scroll
-
+  const [menu, setMenu] = useState("home");
   // Function to handle scroll event
   const handleScroll = () => {
     if (window.scrollY > 50) {
@@ -82,7 +82,13 @@ const Navbar = () => {
             ) : (
               <>
                 <li>
-                  <Link to="/">Home</Link>
+                  <Link
+                    to="/"
+                    onClick={() => setMenu("home")}
+                    className={menu === "home" ? "active" : ""}
+                  >
+                    Home
+                  </Link>
                 </li>
                 <li>
                   <Link to="/jobs">Jobs</Link>
