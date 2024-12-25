@@ -14,7 +14,8 @@ import useGetAppliedJobs from "./hooks/useGetAppliedJobs";
 
 const AppliedJobTable = () => {
   useGetAppliedJobs();
-  const { allAppliedJobs } = useSelector((store) => store.job);
+  // const { allAppliedJobs } = useSelector((store) => store.job);
+  const { allAppliedJobs } = useSelector((store) => store.auth);
   return (
     <div>
       <Navbar />

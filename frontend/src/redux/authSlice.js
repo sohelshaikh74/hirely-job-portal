@@ -5,6 +5,7 @@ const authSlice = createSlice({
   initialState: {
     loading: false,
     user: null,
+    allAppliedJobs: [],
   },
   reducers: {
     // actions
@@ -13,6 +14,11 @@ const authSlice = createSlice({
     },
     setUser: (state, action) => {
       state.user = action.payload;
+    },
+
+    //adding
+    setAllAppliedJobs: (state, action) => {
+      state.allAppliedJobs = action.payload;
     },
   },
 });

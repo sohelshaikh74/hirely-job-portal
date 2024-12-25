@@ -214,7 +214,6 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false); // state to track scroll
-  const [menu, setMenu] = useState("home");
 
   // UseLocation hook to track the current path
   const location = useLocation();
