@@ -91,7 +91,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import Navbar from "./shared/Navbar";
-import FilterCard from "./FilterCard";
 import Job from "./Job";
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
@@ -100,7 +99,7 @@ import { Button } from "./ui/button";
 import { Search } from "lucide-react";
 
 const Jobs = () => {
-  const { allJobs } = useSelector((store) => store.job); // Remove searchedQuery from Redux, as we'll filter locally.
+  const { allJobs } = useSelector((store) => store.job); // Get all jobs from Redux.
   const [filterJobs, setFilterJobs] = useState(allJobs); // Holds the filtered job list.
 
   // Track the search query state.
@@ -117,7 +116,8 @@ const Jobs = () => {
         return (
           job.title.toLowerCase().includes(query.toLowerCase()) ||
           job.description.toLowerCase().includes(query.toLowerCase()) ||
-          job.location.toLowerCase().includes(query.toLowerCase())
+          job.location.toLowerCase().includes(query.toLowerCase()) ||
+          job.company.name.toLowerCase().includes(query.toLowerCase())
         );
       });
       setFilterJobs(filtered);
@@ -137,7 +137,7 @@ const Jobs = () => {
       <div className="flex w-[40%] shadow-lg border border-gray-200 pl-3 rounded-full items-center gap-4 mx-auto mt-8">
         <input
           type="text"
-          placeholder="Search for jobs"
+          placeholder="Search for Jobs/Skills/designation"
           onChange={(e) => setSearch(e.target.value)} // Update search query on every keystroke.
           value={search}
           className="outline-none border-none w-full bg-transparent"
@@ -148,15 +148,13 @@ const Jobs = () => {
       </div>
 
       <div className="max-w-7xl mx-auto mt-5">
-        <div className="flex gap-5">
-          <div className="w-1/5">
-            <FilterCard />
-          </div>
+        <div className="flex flex-col gap-5">
+          {/* Job Cards Section */}
           {filterJobs.length <= 0 ? (
-            <span>Job not found</span>
+            <span className="text-center text-lg">No jobs found</span>
           ) : (
             <div className="flex-1 h-[88vh] overflow-y-auto pb-5">
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {filterJobs.map((job) => (
                   <motion.div
                     initial={{ opacity: 0, x: 100 }}
