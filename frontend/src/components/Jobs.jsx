@@ -6,6 +6,8 @@ import Job from "./Job";
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
 import Footer from "./shared/Footer";
+import { Button } from "./ui/button";
+import { Search } from "lucide-react";
 
 // const jobsArray = [1, 2, 3, 4, 5, 6, 7, 8];
 
@@ -31,6 +33,23 @@ const Jobs = () => {
   return (
     <div>
       <Navbar />
+
+      {/* implementing job search filter */}
+      <div className="flex w-[40%] shadow-lg border border-gray-200 pl-3 rounded-full items-center gap-4 mx-auto">
+        <input
+          type="text"
+          placeholder="Search for jobs"
+          // onChange={(e) => setQuery(e.target.value)}
+          className="outline-none border-none w-full bg-transparent"
+        />
+        <Button
+          // onClick={searchJobHandler}
+          className="rounded-r-full bg-[#F83002] hover:bg-[#6A38C2]"
+        >
+          <Search className="h-5 w-5" />
+        </Button>
+      </div>
+
       <div className="max-w-7xl mx-auto mt-5">
         <div className="flex gap-5">
           <div className="w-20%">
