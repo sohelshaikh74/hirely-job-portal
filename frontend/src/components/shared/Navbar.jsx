@@ -91,13 +91,31 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/jobs">Jobs</Link>
+                  <Link
+                    to="/jobs"
+                    onClick={() => setMenu("jobs")}
+                    className={menu === "jobs" ? "active" : ""}
+                  >
+                    Jobs
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/browse">Browse</Link>
+                  <Link
+                    to="/browse"
+                    onClick={() => setMenu("browse")}
+                    className={menu === "browse" ? "active" : ""}
+                  >
+                    Browse
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/myjobs">My Jobs</Link>
+                  <Link
+                    to="/myjobs"
+                    onClick={() => setMenu("myjobs")}
+                    className={menu === "myjobs" ? "active" : ""}
+                  >
+                    My Jobs
+                  </Link>
                 </li>
               </>
             )}
