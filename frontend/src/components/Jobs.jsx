@@ -99,6 +99,7 @@ import { motion } from "framer-motion";
 import Footer from "./shared/Footer";
 import { Button } from "./ui/button";
 import { Search } from "lucide-react";
+import { filterJobs, setSearchedQuery } from "@/redux/jobSlice";
 
 const Jobs = () => {
   const { filteredJobs, searchedQuery } = useSelector((store) => store.job);
