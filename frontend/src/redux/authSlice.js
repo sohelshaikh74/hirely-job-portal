@@ -5,7 +5,6 @@ const authSlice = createSlice({
   initialState: {
     loading: false,
     user: null,
-    allAppliedJobs: [],
   },
   reducers: {
     // actions
@@ -15,12 +14,7 @@ const authSlice = createSlice({
     setUser: (state, action) => {
       state.user = action.payload;
     },
-
-    //adding
-    setAllAppliedJobs: (state, action) => {
-      state.allAppliedJobs = action.payload;
-    },
   },
 });
-export const { setLoading, setUser, setAllAppliedJobs } = authSlice.actions;
+export const { setLoading, setUser } = authSlice.actions;
 export default authSlice.reducer;

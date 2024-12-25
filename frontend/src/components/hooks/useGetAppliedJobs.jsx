@@ -1,6 +1,4 @@
-// import { setAllAppliedJobs } from "@/redux/authSlice";
-// import { setAllAppliedJobs } from "@/redux/jobSlice";
-import { setAllAppliedJobs } from "@/redux/authSlice";
+import { setAllAppliedJobs } from "@/redux/jobSlice";
 import { APPLICATION_API_END_POINT } from "@/utils/constant";
 import axios from "axios";
 import { useEffect } from "react";
