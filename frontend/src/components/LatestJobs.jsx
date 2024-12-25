@@ -1,6 +1,7 @@
 import LatestJobCards from "./LatestJobCards";
 import { useSelector } from "react-redux";
 import useGetAllJobs from "./hooks/useGetAllJobs";
+import { motion } from "framer-motion";
 
 // const randomJobs = [1, 2, 3, 4, 5, 6, 7, 8];
 
@@ -17,13 +18,40 @@ const LatestJobs = () => {
         {allJobs.length <= 0 ? (
           <span>No Job Available</span>
         ) : (
+          allJobs?.slice(0, 6).map((job) => (
+            <motion.div
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -100 }}
+              transition={{ duration: 0.3 }}
+              key={job._id}
+            >
+              <LatestJobCards job={job} />
+            </motion.div>
+          ))
+        )}
+        {/* {allJobs.length <= 0 ? (
+          <span>No Job Available</span>
+        ) : (
           allJobs
             ?.slice(0, 6)
             .map((job) => <LatestJobCards key={job._id} job={job} />)
-        )}
+        )} */}
       </div>
     </div>
   );
 };
 
 export default LatestJobs;
+
+{
+  /* <motion.div
+initial={{ opacity: 0, x: 100 }}
+animate={{ opacity: 1, x: 0 }}
+exit={{ opacity: 0, x: -100 }}
+transition={{ duration: 0.3 }}
+key={job?._id}
+>
+<Job job={job} />
+</motion.div> */
+}
