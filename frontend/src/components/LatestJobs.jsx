@@ -30,28 +30,9 @@ const LatestJobs = () => {
             </motion.div>
           ))
         )}
-        {/* {allJobs.length <= 0 ? (
-          <span>No Job Available</span>
-        ) : (
-          allJobs
-            ?.slice(0, 6)
-            .map((job) => <LatestJobCards key={job._id} job={job} />)
-        )} */}
       </div>
     </div>
   );
 };
 
 export default LatestJobs;
-
-{
-  /* <motion.div
-initial={{ opacity: 0, x: 100 }}
-animate={{ opacity: 1, x: 0 }}
-exit={{ opacity: 0, x: -100 }}
-transition={{ duration: 0.3 }}
-key={job?._id}
->
-<Job job={job} />
-</motion.div> */
-}

@@ -6,10 +6,8 @@ import Footer from "./shared/Footer";
 import Navbar from "./shared/Navbar";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
-// import useGetAllJobs from "./hooks/useGetAllJobs";
 
 const Home = () => {
-  // useGetAllJobs();
   const navigate = useNavigate();
   const { user } = useSelector((store) => store.auth);
 
