@@ -89,57 +89,47 @@
 
 // latest code
 /* eslint-disable no-unused-vars */
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import Navbar from "./shared/Navbar";
 import FilterCard from "./FilterCard";
 import Job from "./Job";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { motion } from "framer-motion";
 import Footer from "./shared/Footer";
 import { Button } from "./ui/button";
 import { Search } from "lucide-react";
 
 const Jobs = () => {
-  const { allJobs } = useSelector((store) => store.job); // Remove searchedQuery from Redux, as we'll filter locally.
-  const [filterJobs, setFilterJobs] = useState(allJobs); // Holds the filtered job list.
-
-  // Track the search query state.
+  const { filteredJobs, searchedQuery } = useSelector((store) => store.job);
+  const dispatch = useDispatch();
   const [search, setSearch] = useState("");
 
-  // This function will handle live filtering of jobs based on search query.
-  const filterJobsBySearch = (query) => {
-    if (!query) {
-      // If no query, show all jobs.
-      setFilterJobs(allJobs);
-    } else {
-      // Filter jobs based on title, description, and location (case-insensitive).
-      const filtered = allJobs.filter((job) => {
-        return (
-          job.title.toLowerCase().includes(query.toLowerCase()) ||
-          job.description.toLowerCase().includes(query.toLowerCase()) ||
-          job.location.toLowerCase().includes(query.toLowerCase())
-        );
-      });
-      setFilterJobs(filtered);
-    }
-  };
-
-  // UseEffect to update the job list when `search` changes.
+  // Update filteredJobs based on search query in local state
   useEffect(() => {
-    filterJobsBySearch(search);
-  }, [search, allJobs]); // Re-run filtering whenever `search` or `allJobs` changes.
+    if (searchedQuery) {
+      setSearch(searchedQuery);
+    }
+  }, [searchedQuery]);
+
+  // Handle live search filtering
+  useEffect(() => {
+    if (search) {
+      dispatch(setSearchedQuery(search)); // Dispatch searched query to Redux
+      dispatch(filterJobs()); // Trigger job filtering after search change
+    }
+  }, [search, dispatch]);
 
   return (
     <div>
       <Navbar />
-
-      {/* Implementing job search filter */}
+      {/* Job search filter */}
       <div className="flex w-[40%] shadow-lg border border-gray-200 pl-3 rounded-full items-center gap-4 mx-auto mt-8">
         <input
           type="text"
           placeholder="Search for jobs"
-          onChange={(e) => setSearch(e.target.value)} // Update search query on every keystroke.
           value={search}
+          onChange={(e) => setSearch(e.target.value)} // Update search query on every keystroke
           className="outline-none border-none w-full bg-transparent"
         />
         <Button className="rounded-r-full bg-[#F83002] hover:bg-[#6A38C2]">
@@ -152,12 +142,12 @@ const Jobs = () => {
           <div className="w-1/5">
             <FilterCard />
           </div>
-          {filterJobs.length <= 0 ? (
+          {filteredJobs.length <= 0 ? (
             <span>Job not found</span>
           ) : (
             <div className="flex-1 h-[88vh] overflow-y-auto pb-5">
               <div className="grid grid-cols-3 gap-4">
-                {filterJobs.map((job) => (
+                {filteredJobs.map((job) => (
                   <motion.div
                     initial={{ opacity: 0, x: 100 }}
                     animate={{ opacity: 1, x: 0 }}
