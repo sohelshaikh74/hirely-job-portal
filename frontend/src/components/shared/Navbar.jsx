@@ -14,6 +14,7 @@ import { USER_API_END_POINT } from "@/utils/constant";
 import { toast } from "sonner";
 import { setUser } from "@/redux/authSlice";
 import { useState, useEffect } from "react";
+import { assets } from "@/assets/assets";
 
 const Navbar = () => {
   const { user } = useSelector((store) => store.auth);
@@ -72,6 +73,11 @@ const Navbar = () => {
             className="text-2xl font-bold cursor-pointer"
             onClick={() => navigate("/")}
           >
+            <img
+              src={assets.h_logo} // Replace with the actual path to your logo
+              alt="Hirely Logo"
+              className="w-8 h-8" // Adjust the size of the logo image
+            />
             {/* Hire<span className="text-[#f83002]">ly</span> */}
             <span className="text-[#275DF5]">Hirely</span>
           </h1>
