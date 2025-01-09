@@ -69,21 +69,20 @@ const Navbar = () => {
     >
       <div className="flex items-center justify-between mx-auto max-w-7xl h-16">
         {/*  <div> */}
-        <div className="flex items-center" onClick={() => navigate("/")}>
-          <img
-            src={assets.h_logo} // Replace with the actual path to your logo
+        <div className="flex items-center">
+          {/* <img
+            src={assets.h_logo}
             alt="Hirely Logo"
             style={{ width: "40px", height: "40px" }}
             className=""
-            // Adjust the size of the logo image
-          />
+          /> */}
           <h1
-            className="text-2xl font-bold cursor-pointer text-[#275DF5]"
+            className="text-2xl font-bold cursor-pointer"
             onClick={() => navigate("/")}
           >
-            Hirely
+            Hire
             {/* Hire<span className="text-[#f83002]">ly</span> */}
-            {/* <span className="text-[#275DF5]">Hirely</span> */}
+            <span className="text-[#f83002]">ly</span>
           </h1>
         </div>
         <div className="flex items-center gap-12">
