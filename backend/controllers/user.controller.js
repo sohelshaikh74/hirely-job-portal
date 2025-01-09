@@ -6,6 +6,7 @@ import cloudinary from "../utils/cloudinary.js";
 import dotenv from "dotenv";
 dotenv.config();
 import transporter from "../config/nodemailer.js";
+import { WELCOME_TEMPLATE } from "../config/emialTemplates.js";
 
 export const register = async (req, res) => {
   try {
@@ -59,7 +60,8 @@ export const register = async (req, res) => {
       from: process.env.SENDER_EMAIL, // Sender's email address
       to: email, // Recipient's email address (user's email)
       subject: "Welcome to Hirely", // Email subject
-      text: `Welcome to Hirely, your job portal! Your account has been created with email id: ${email}`,
+      // text: `Welcome to Hirely, your job portal! Your account has been created with email id: ${email}`,
+      html: WELCOME_TEMPLATE.replace("{{email}}", email),
     };
     // Sending the email and handling potential errors
     try {
