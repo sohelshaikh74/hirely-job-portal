@@ -24,7 +24,7 @@ const HeroSection = () => {
         <h1 className="text-5xl font-bold">
           Discover, Apply & <br /> Secure Your{" "}
           {/* <span className="text-[#6A38C2]">Ideal Career</span> */}
-          <span className="text-[#f83002]">Ideal Career</span>
+          <span className="text-[#275DF5]">Ideal Career</span>
         </h1>
         <p>
           Discover and apply for the best career opportunities that align with

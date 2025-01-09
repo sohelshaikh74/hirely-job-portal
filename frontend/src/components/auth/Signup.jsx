@@ -238,7 +238,7 @@ const Signup = () => {
             </Button>
           ) : (
             <Button
-              type="submit bg-[#275DF5] hover:bg-[#275ef5d1]"
+              type="submit bg-[#275DF5] hover:bg-[#f83002]"
               className="w-full my-4"
             >
               Signup
