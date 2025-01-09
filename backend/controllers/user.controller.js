@@ -3,6 +3,9 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import getDataUri from "../utils/datauri.js";
 import cloudinary from "../utils/cloudinary.js";
+import dotenv from "dotenv";
+dotenv.config();
+import transporter from "../config/nodemailer.js";
 
 export const register = async (req, res) => {
   try {
@@ -37,6 +40,35 @@ export const register = async (req, res) => {
         profilePhoto: cloudResponse.secure_url,
       },
     });
+
+    // Create JWT token for the user
+    const token = jwt.sign({ id: User._id }, process.env.SECRET_KEY, {
+      expiresIn: "7d",
+    });
+
+    // Send the token in a cookie
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
+      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days expiry
+    });
+
+    // Nodemailer setup and sending the email
+    const mailOptions = {
+      from: process.env.SENDER_EMAIL, // Sender's email address
+      to: email, // Recipient's email address (user's email)
+      subject: "Welcome to Hirely", // Email subject
+      text: `Welcome to Hirely, your job portal! Your account has been created with email id: ${email}`,
+    };
+    // Sending the email and handling potential errors
+    try {
+      await transporter.sendMail(mailOptions);
+      console.log("Welcome email sent successfully.");
+    } catch (emailError) {
+      console.error("Error sending email: ", emailError);
+      // It's up to you if you want to handle the email error here or still proceed with user registration
+    }
 
     return res.status(201).json({
       message: "Account created successfully.",
