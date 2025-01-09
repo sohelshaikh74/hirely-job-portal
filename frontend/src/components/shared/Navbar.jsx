@@ -77,7 +77,7 @@ const Navbar = () => {
             className=""
           /> */}
           <h1
-            className="text-2xl font-bold cursor-pointer"
+            className="text-2xl font-bold cursor-pointer text-[#275DF5]"
             onClick={() => navigate("/")}
           >
             Hire
