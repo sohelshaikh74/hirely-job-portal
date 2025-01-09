@@ -73,7 +73,8 @@ const Navbar = () => {
           <img
             src={assets.h_logo} // Replace with the actual path to your logo
             alt="Hirely Logo"
-            className="w-[40px] h-[40px]"
+            style={{ width: "40px", height: "40px" }}
+            className=""
             // Adjust the size of the logo image
           />
           <h1
