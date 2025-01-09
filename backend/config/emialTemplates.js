@@ -55,7 +55,7 @@ export const WELCOME_TEMPLATE = `<!DOCTYPE html>
     <div class="container">
         <div class="header">
             <h1>Welcome to
-                <br><span class="hirely">Hirely</span>Job Portal!
+                Hire<span class="hirely">ly</span> Job Portal!
             </h1>
         </div>
         <div class="message">
