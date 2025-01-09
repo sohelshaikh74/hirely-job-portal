@@ -65,7 +65,9 @@ const Job = ({ job }) => {
         >
           Details
         </Button>
-        <Button className="bg-[#7209b7]">Save For Later</Button>
+        <Button className="bg-[#275DF5] hover:bg-[#275ef5c3]">
+          Save For Later
+        </Button>
       </div>
     </div>
   );

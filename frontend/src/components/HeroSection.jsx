@@ -23,7 +23,8 @@ const HeroSection = () => {
         </span>
         <h1 className="text-5xl font-bold">
           Discover, Apply & <br /> Secure Your{" "}
-          <span className="text-[#6A38C2]">Ideal Career</span>
+          {/* <span className="text-[#6A38C2]">Ideal Career</span> */}
+          <span className="text-[#f83002]">Ideal Career</span>
         </h1>
         <p>
           Discover and apply for the best career opportunities that align with
@@ -39,7 +40,7 @@ const HeroSection = () => {
           />
           <Button
             onClick={searchJobHandler}
-            className="rounded-r-full bg-[#F83002] hover:bg-[#6A38C2]"
+            className="rounded-r-full bg-[#F83002] hover:bg-[#275DF5]"
           >
             <Search className="h-5 w-5" />
           </Button>

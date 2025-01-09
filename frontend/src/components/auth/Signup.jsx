@@ -237,7 +237,10 @@ const Signup = () => {
               <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Please wait
             </Button>
           ) : (
-            <Button type="submit" className="w-full my-4">
+            <Button
+              type="submit bg-[#275DF5] hover:bg-[#275ef5d1]"
+              className="w-full my-4"
+            >
               Signup
             </Button>
           )}
