@@ -160,7 +160,7 @@ export const logout = async (req, res) => {
 export const updateProfile = async (req, res) => {
   try {
     const { fullname, email, phoneNumber, bio, skills } = req.body;
-    console.log(fullname, email, phoneNumber, bio, skills);
+    // console.log(fullname, email, phoneNumber, bio, skills);
 
     // Get the uploaded file from the request
     const file = req.file;
@@ -171,7 +171,7 @@ export const updateProfile = async (req, res) => {
         success: false,
       });
     }
-    console.log(file); // You can log the file to ensure it has been uploaded
+    // console.log(file); // You can log the file to ensure it has been uploaded
 
     // Process file, e.g., upload to Cloudinary
     const fileUri = getDataUri(file); // Assuming getDataUri handles file.buffer
