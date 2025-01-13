@@ -82,7 +82,7 @@ const Navbar = () => {
           >
             Hire
             {/* Hire<span className="text-[#f83002]">ly</span> */}
-            <span className="text-[#f83002]">ly</span>
+            <span className="text-[#f83002]">Ly</span>
           </h1>
         </div>
         <div className="flex items-center gap-12">

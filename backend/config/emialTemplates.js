@@ -45,9 +45,12 @@ export const WELCOME_TEMPLATE = `<!DOCTYPE html>
             margin-top: 30px;
         }
 
-        .hirely {
+        .hire{
             color: #275DF5
         }
+        .ly{
+        color:#f83002
+            }
     </style>
 </head>
 
@@ -55,7 +58,7 @@ export const WELCOME_TEMPLATE = `<!DOCTYPE html>
     <div class="container">
         <div class="header">
             <h1>Welcome to
-                <span class="hirely">Hirely</span> Job Portal!
+                <span class="hire">Hire</span><span class="ly">Ly</span>  Job Portal!
             </h1>
         </div>
         <div class="message">
