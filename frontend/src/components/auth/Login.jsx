@@ -32,10 +32,6 @@ const Login = () => {
     const { email, password } = input;
     if (!email) formErrors.email = "Email is required";
     if (!password) formErrors.password = "Password is required";
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (emailRegex.test(email)) {
-      formErrors.email = "Please enter a valid email address";
-    }
     setErrors(formErrors);
     return Object.keys(formErrors).length === 0;
   };
