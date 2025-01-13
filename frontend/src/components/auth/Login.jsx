@@ -18,6 +18,7 @@ const Login = () => {
     password: "",
     role: "",
   });
+  const [errors, setErrors] = useState({});
   const { loading, user } = useSelector((store) => store.auth);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -26,8 +27,22 @@ const Login = () => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
+  const validateForm = () => {
+    let formErrors = {};
+    const { email, password } = input;
+    if (!email) formErrors.email = "Email is required";
+    if (!password) formErrors.password = "Password is required";
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (emailRegex.test(email)) {
+      formErrors.email = "Please enter a valid email address";
+    }
+    setErrors(formErrors);
+    return Object.keys(formErrors).length === 0;
+  };
+
   const submitHandler = async (e) => {
     e.preventDefault();
+    if (!validateForm()) return;
     try {
       dispatch(setLoading(true));
       const res = await axios.post(
@@ -75,6 +90,9 @@ const Login = () => {
               onChange={changeEventHandler}
               placeholder="eg. user123@gmail.com"
             />
+            {errors.email && (
+              <span className="text-red-600 text-sm">{errors.email}</span>
+            )}
           </div>
 
           <div className="my-2">
@@ -86,6 +104,9 @@ const Login = () => {
               onChange={changeEventHandler}
               placeholder=""
             />
+            {errors.password && (
+              <span className="text-red-600 text-sm">{errors.password}</span>
+            )}
           </div>
           <div className="flex items-center justify-between">
             <RadioGroup className="flex items-center gap-4 my-5">
