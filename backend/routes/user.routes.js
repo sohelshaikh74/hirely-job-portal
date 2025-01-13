@@ -42,7 +42,7 @@ router.route("/login").post(login);
 router.route("/logout").get(logout);
 
 // deleteAccount
-router.route("/delete").get(deleteAccount);
+router.route("/delete").delete(isAuthenticated, deleteAccount);
 
 // Profile update route, protected by authentication middleware and allowing file upload
 router
