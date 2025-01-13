@@ -6,7 +6,12 @@ import { Contact, Mail, Pen, Trash } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { Label } from "./ui/label";
 import UpdateProfileDialog from "./UpdateProfileDialog";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "sonner";
+import axios from "axios";
+import { USER_API_END_POINT } from "@/utils/constant";
+import { useNavigate } from "react-router-dom";
+import { setUser } from "@/redux/authSlice";
 // import useGetAppliedJobs from "./hooks/useGetAppliedJobs";
 
 // const skills = ["Html", "Css", "Javascript", "Reactjs"]
@@ -16,7 +21,22 @@ const Profile = () => {
   // useGetAppliedJobs();
   const [open, setOpen] = useState(false);
   const { user } = useSelector((store) => store.auth);
-
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const deleteAccount = async () => {
+    try {
+      const res = await axios.delete(`${USER_API_END_POINT}/delete`, {
+        withCredentials: true, // If you're using cookies for authentication
+      });
+      if (res.data.success) {
+        dispatch(setUser(res.data.user));
+        toast.success(res.data.message);
+        navigate("/");
+      }
+    } catch (error) {
+      toast.error(error.response.data.message);
+    }
+  };
   return (
     <div>
       <Navbar />
@@ -82,7 +102,7 @@ const Profile = () => {
         {/* Delete Account Button */}
         <div className="mt-5">
           <Button
-            // onClick={handleDeleteAccount}
+            onClick={deleteAccount}
             variant="outline"
             color="red"
             className="w-full"
