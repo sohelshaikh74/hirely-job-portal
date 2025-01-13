@@ -29,12 +29,15 @@ const Profile = () => {
         withCredentials: true, // If you're using cookies for authentication
       });
       if (res.data.success) {
-        dispatch(setUser(res.data.user));
+        dispatch(setUser(null));
         toast.success(res.data.message);
         navigate("/");
       }
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(
+        error.response?.data?.message ||
+          "An error occurred while deleting the account"
+      );
     }
   };
   return (
