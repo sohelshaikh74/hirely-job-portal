@@ -232,7 +232,7 @@ export const updateProfile = async (req, res) => {
   }
 };
 
-const deleteAccount = async (req, res) => {
+export const deleteAccount = async (req, res) => {
   try {
     const userId = req.id; // Get the userId from the middleware
     if (!userId) {
