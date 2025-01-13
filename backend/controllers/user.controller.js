@@ -232,14 +232,23 @@ export const updateProfile = async (req, res) => {
   }
 };
 
-export const deleteAccount = async (req, res) => {
+const deleteAccount = async (req, res) => {
   try {
-    const userId = req.id;
+    const userId = req.id; // Get the userId from the middleware
+    if (!userId) {
+      return res
+        .status(400)
+        .json({ success: false, message: "User not authenticated" });
+    }
+
     const user = await User.findByIdAndDelete(userId);
     if (!user) {
-      return res.status(404).json({ message: "User not found" });
+      return res
+        .status(404)
+        .json({ message: "User not found", success: false });
     }
-    return res.json({ message: "Account deleted successfully" });
+
+    return res.json({ message: "Account deleted successfully", success: true });
   } catch (error) {
     return res.status(500).json({
       success: false,

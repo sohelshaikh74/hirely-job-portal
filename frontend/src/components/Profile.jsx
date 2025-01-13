@@ -28,6 +28,7 @@ const Profile = () => {
       const res = await axios.delete(`${USER_API_END_POINT}/delete`, {
         withCredentials: true, // If you're using cookies for authentication
       });
+
       if (res.data.success) {
         dispatch(setUser(null));
         toast.success(res.data.message);
