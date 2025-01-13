@@ -21,6 +21,7 @@
 
 import express from "express";
 import {
+  deleteAccount,
   login,
   logout,
   register,
@@ -39,6 +40,9 @@ router.route("/login").post(login);
 
 // Logout route
 router.route("/logout").get(logout);
+
+// deleteAccount
+router.route("/delete").get(deleteAccount);
 
 // Profile update route, protected by authentication middleware and allowing file upload
 router

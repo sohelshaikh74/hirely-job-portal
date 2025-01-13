@@ -2,7 +2,7 @@ import { useState } from "react";
 import Navbar from "./shared/Navbar";
 import { Avatar, AvatarImage } from "./ui/avatar";
 import { Button } from "./ui/button";
-import { Contact, Mail, Pen } from "lucide-react";
+import { Contact, Mail, Pen, Trash } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { Label } from "./ui/label";
 import UpdateProfileDialog from "./UpdateProfileDialog";
@@ -78,6 +78,18 @@ const Profile = () => {
           ) : (
             <span>NA</span>
           )}
+        </div>
+        {/* Delete Account Button */}
+        <div className="mt-5">
+          <Button
+            // onClick={handleDeleteAccount}
+            variant="outline"
+            color="red"
+            className="w-full"
+          >
+            <Trash className="mr-2" />
+            Delete Account
+          </Button>
         </div>
       </div>
       {/* <div className="max-w-4xl mx-auto bg-white rounded-2xl">
