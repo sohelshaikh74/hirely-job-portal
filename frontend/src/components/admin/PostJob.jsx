@@ -172,7 +172,7 @@ const PostJob = () => {
               </div>
             )}
             <div className="col-span-2">
-              <Label>Description</Label>
+              <Label>Job Description</Label>
               <textarea
                 name="description"
                 value={input.description}

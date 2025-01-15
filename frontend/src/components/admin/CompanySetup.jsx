@@ -296,6 +296,7 @@ const CompanySetup = () => {
                 value={input.description}
                 onChange={changeEventHandler}
                 rows={4} // Adjust the number of rows as needed
+                className="w-full p-2 border border-gray-300 rounded-md" // Ensure it spans full width
               />
             </div>
           </div>
