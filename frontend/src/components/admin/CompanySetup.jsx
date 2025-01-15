@@ -162,7 +162,6 @@ import Navbar from "../shared/Navbar";
 import { Button } from "../ui/button";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
-import { Textarea } from "../ui/textarea"; // You may need to create or import this component
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { COMPANY_API_END_POINT } from "@/utils/constant";
@@ -292,7 +291,7 @@ const CompanySetup = () => {
             {/* Updated description field */}
             <div className="col-span-2">
               <Label>Description</Label>
-              <Textarea
+              <textarea
                 name="description"
                 value={input.description}
                 onChange={changeEventHandler}
