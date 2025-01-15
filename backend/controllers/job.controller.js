@@ -51,7 +51,8 @@ export const postJob = async (req, res) => {
     });
   } catch (error) {
     // Log the error for debugging
-    //  console.error("Error creating job:", error);
+
+    // console.error("Error creating job:", error);
 
     // Return a server error response
     return res.status(500).json({
