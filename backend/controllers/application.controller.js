@@ -45,7 +45,14 @@ export const applyJob = async (req, res) => {
       success: true,
     });
   } catch (error) {
-    console.log(error);
+    // Log the error for debugging purposes
+    // console.error("Error applying for job:", error);
+
+    // Return a generic error response if something goes wrong
+    return res.status(500).json({
+      message: "An error occurred while applying for the job.",
+      success: false,
+    });
   }
 };
 export const getAppliedJobs = async (req, res) => {
@@ -72,7 +79,14 @@ export const getAppliedJobs = async (req, res) => {
       success: true,
     });
   } catch (error) {
-    console.log(error);
+    // Log the error properly
+    // console.error("Error fetching applied jobs:", error);
+
+    // Return a generic error message to the client
+    return res.status(500).json({
+      message: "An error occurred while fetching your applications.",
+      success: false,
+    });
   }
 };
 // admin dekhega kitna user ne apply kiya hai
@@ -97,7 +111,14 @@ export const getApplicants = async (req, res) => {
       succees: true,
     });
   } catch (error) {
-    console.log(error);
+    // Log error properly
+    // console.error("Error fetching applicants for job:", error);
+
+    // Return a generic error message to the client
+    return res.status(500).json({
+      message: "An error occurred while fetching applicants for the job.",
+      success: false,
+    });
   }
 };
 export const updateStatus = async (req, res) => {
@@ -129,6 +150,13 @@ export const updateStatus = async (req, res) => {
       success: true,
     });
   } catch (error) {
-    console.log(error);
+    // Log error to the console for debugging
+    // console.error("Error updating application status:", error);
+
+    // Return a generic error response to the client
+    return res.status(500).json({
+      message: "An error occurred while updating the application status.",
+      success: false,
+    });
   }
 };

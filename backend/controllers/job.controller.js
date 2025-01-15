@@ -50,7 +50,14 @@ export const postJob = async (req, res) => {
       success: true,
     });
   } catch (error) {
-    console.log(error);
+    // Log the error for debugging
+    //  console.error("Error creating job:", error);
+
+    // Return a server error response
+    return res.status(500).json({
+      message: "An error occurred while creating the job.",
+      success: false,
+    });
   }
 };
 // student k liye
@@ -79,7 +86,14 @@ export const getAllJobs = async (req, res) => {
       success: true,
     });
   } catch (error) {
-    console.log(error);
+    // Log any errors that occur during execution
+    //  console.error("Error fetching jobs:", error);
+
+    // Return a 500 status code with an error message in case of server errors
+    return res.status(500).json({
+      message: "An error occurred while fetching jobs.",
+      success: false,
+    });
   }
 };
 // student
@@ -97,7 +111,14 @@ export const getJobById = async (req, res) => {
     }
     return res.status(200).json({ job, success: true });
   } catch (error) {
-    console.log(error);
+    // Log the error for debugging purposes
+    //  console.error("Error fetching job by ID:", error);
+
+    // Return a 500 error if an unexpected error occurs
+    return res.status(500).json({
+      message: "An error occurred while fetching the job.",
+      success: false,
+    });
   }
 };
 // admin kitne job create kra hai abhi tk
@@ -119,6 +140,13 @@ export const getAdminJobs = async (req, res) => {
       success: true,
     });
   } catch (error) {
-    console.log(error);
+    // Log the error for debugging purposes
+    // console.error("Error fetching admin jobs:", error);
+
+    // Return a 500 error if an unexpected error occurs
+    return res.status(500).json({
+      message: "An error occurred while fetching jobs for the admin.",
+      success: false,
+    });
   }
 };

@@ -14,7 +14,6 @@ import { USER_API_END_POINT } from "@/utils/constant";
 import { toast } from "sonner";
 import { setUser } from "@/redux/authSlice";
 import { useState, useEffect } from "react";
-import { assets } from "@/assets/assets";
 
 const Navbar = () => {
   const { user } = useSelector((store) => store.auth);
@@ -56,7 +55,7 @@ const Navbar = () => {
         toast.success(res.data.message);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error(error.response.data.message);
     }
   };

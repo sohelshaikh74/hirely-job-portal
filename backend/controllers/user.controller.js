@@ -77,7 +77,11 @@ export const register = async (req, res) => {
       success: true,
     });
   } catch (error) {
-    console.log(error);
+    // console.error("Error during registration: ", error);
+    return res.status(500).json({
+      message: "An error occurred during registration.",
+      success: false,
+    });
   }
 };
 
@@ -142,7 +146,11 @@ export const login = async (req, res) => {
         success: true,
       });
   } catch (error) {
-    console.log(error);
+    // console.error("Login error:", error);
+    return res.status(500).json({
+      message: "An error occurred while processing your request.",
+      success: false,
+    });
   }
 };
 
@@ -153,7 +161,10 @@ export const logout = async (req, res) => {
       success: true,
     });
   } catch (error) {
-    console.log(error);
+    res.status(500).json({
+      message: "An error occurred while logging out.",
+      success: false,
+    });
   }
 };
 
@@ -224,7 +235,7 @@ export const updateProfile = async (req, res) => {
       success: true,
     });
   } catch (error) {
-    console.log(error);
+    // console.log("Error occure while updating profile", error);
     return res.status(500).json({
       message: "An error occurred while updating the profile.",
       success: false,

@@ -29,7 +29,14 @@ export const registerCompany = async (req, res) => {
       success: true,
     });
   } catch (error) {
-    console.log(error);
+    // Log the error for debugging purposes
+    // console.error("Error registering company:", error);
+
+    // Return a generic error response
+    return res.status(500).json({
+      message: "An error occurred while registering the company.",
+      success: false,
+    });
   }
 };
 export const getCompany = async (req, res) => {
@@ -47,7 +54,14 @@ export const getCompany = async (req, res) => {
       success: true,
     });
   } catch (error) {
-    console.log(error);
+    // Log the error for debugging purposes
+    // console.error("Error fetching companies:", error);
+
+    // Return a generic error response
+    return res.status(500).json({
+      message: "An error occurred while fetching companies.",
+      success: false,
+    });
   }
 };
 // get company by id
@@ -66,7 +80,14 @@ export const getCompanyById = async (req, res) => {
       success: true,
     });
   } catch (error) {
-    console.log(error);
+    // Log the error for debugging purposes
+    //  console.error("Error fetching company:", error);
+
+    // Return a generic server error response
+    return res.status(500).json({
+      message: "An error occurred while fetching the company.",
+      success: false,
+    });
   }
 };
 export const updateCompany = async (req, res) => {
@@ -96,6 +117,10 @@ export const updateCompany = async (req, res) => {
       success: true,
     });
   } catch (error) {
-    console.log(error);
+    // console.error("Error updating company:", error);
+    return res.status(500).json({
+      message: "An error occurred while updating company information.",
+      success: false,
+    });
   }
 };

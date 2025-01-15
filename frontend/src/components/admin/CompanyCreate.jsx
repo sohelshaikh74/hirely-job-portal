@@ -45,7 +45,7 @@ const CompanyCreate = () => {
       // Handle error response from the backend
       const errorMessage = error.response?.data?.message || error.message;
       toast.error(errorMessage); // Display error message in toast
-      console.log("Error details:", error.response?.data || error.message);
+      // console.log("Error details:", error.response?.data || error.message);
     }
   };
 
