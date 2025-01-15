@@ -58,7 +58,7 @@ const Signup = () => {
     }
 
     // Validate phone number: numeric and not empty
-    const phoneRegex = /^[0-9]+$/;
+    const phoneRegex = /^[0-9]{10}$/;
     if (input.phoneNumber && !phoneRegex.test(input.phoneNumber)) {
       formErrors.phoneNumber = "Phone number must be numeric";
     }
