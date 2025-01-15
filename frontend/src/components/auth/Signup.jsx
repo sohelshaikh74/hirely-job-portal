@@ -57,10 +57,14 @@ const Signup = () => {
       formErrors.email = "Please enter a valid email address";
     }
 
-    // Validate phone number: numeric and not empty
-    const phoneRegex = /^[0-9]{10}$/;
-    if (input.phoneNumber && !phoneRegex.test(input.phoneNumber)) {
-      formErrors.phoneNumber = "Phone number must be numeric";
+    // Validate phone number:
+    if (input.phoneNumber) {
+      const phoneRegex = /^[0-9]+$/; // To ensure the phone number is numeric
+      if (!phoneRegex.test(input.phoneNumber)) {
+        formErrors.phoneNumber = "Phone number must be numeric";
+      } else if (input.phoneNumber.length !== 10) {
+        formErrors.phoneNumber = "Phone number must be 10 digits";
+      }
     }
 
     setErrors(formErrors);
